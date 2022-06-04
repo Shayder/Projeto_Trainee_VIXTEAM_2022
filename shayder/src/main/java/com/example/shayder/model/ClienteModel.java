@@ -7,6 +7,13 @@ public class ClienteModel {
     private String senha;
     private String sexo;
 
+    //TESTE SIMULAÇÃO DO BANCO
+    public ClienteModel(String nome){
+        this.nome = nome;
+    }
+    //TESTE SIMULAÇÃO DO BANCO
+
+
     public ClienteModel(String nome, String cpf, String email, String senha, String sexo) {
         this.nome = nome;
         this.cpf = cpf;
