@@ -35,7 +35,7 @@ function verificaCPF() {
 function verificaSenha() {
     var senha = document.getElementById('inputSenha').value;
 
-    if (senha.length >= 8) {   
+    if (senha.length >= 6 && senha.length <= 10) {   
         document.getElementById('inputSenha').classList.remove('is-invalid'); 
         document.getElementById('inputSenha').classList.add('is-valid');
     } else { 
