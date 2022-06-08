@@ -6,14 +6,13 @@ import com.example.shayder.repository.ClienteRepository;
 import com.example.shayder.service.ClienteServiceImpl;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 
 @RestController
+@RequestMapping
 public class ClienteController {
 
     @Autowired
@@ -32,6 +31,13 @@ public class ClienteController {
         }
         return !clientes.isEmpty() ? clienteJson.toString() : "null";
     }
+//    @RequestMapping(value="/consultaBuscar", method = RequestMethod.GET)
+//    public Iterable<ClienteModel> form() {
+//        Iterable<ClienteModel>usuarioModels = clienteRepository.findAll();
+//        return usuarioModels;
+//    }
+
+
 
 //    @GetMapping("/cadastro")
 //    public String cadastrar(

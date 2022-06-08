@@ -11,7 +11,7 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
     <script src="JS/cadastroCliente.js"></script>
-    <script src="JS/ajaxConsultaCliente.js"></script>
+    <script src="JS/ConsultaCliente.js"></script>
     <script src="JS/jquery-3.6.0.min.js"></script>
     <title>Trainee Vixteam</title>
 </head>
@@ -22,38 +22,34 @@
 
     </div>
 
-    <div class="col d-flex justify-content-center">
+    <div class="d-flex justify-content-center">
         <form id="formConsulta">
 
-            <div class="form-outline row col-12 mt-4 ">
+            <div class="form-outline row  mt-4 ">
                 <label class="form-label" for="InputNome">Nome Completo</label>
                 <input type="text" id="inputNome" name="fNome" class="form-control" />
 
             </div>
 
-            <div class="form-outline row col-12 mt-3">
+            <div class="form-outline row mt-3">
                 <button type="button" class="btn btn-success mt-3 mb-3" onclick="consultarCliente()">Consultar</button>
             </div>
 
-
-
-            <div class="form-outline row col-10 mt-3">
-                <p id="resposta"></p>
-            </div>
+            
 
         </form>
 
     </div>
-
     <div class="row d-flex justify-content-center ">
         <ul class="list-group row col-10 d-flex justify-content-center ">
-            <li class="list-group-item">Usuário 1</li>
-            <li class="list-group-item active">Usuário 2</li>
-            <li class="list-group-item">Usuário 3</li>
-            <li class="list-group-item">Usuário 4</li>
+            <li class="list-group-item" id="resposta"></li>
+<!--                    <li class="list-group-item active">Usuário 2</li>-->
+<!--                    <li class="list-group-item">Usuário 3</li>-->
+<!--                    <li class="list-group-item">Usuário 4</li>-->
 
         </ul>
     </div>
+
 
     <div class=" row d-flex justify-content-center">
 

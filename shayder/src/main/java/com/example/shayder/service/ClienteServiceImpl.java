@@ -13,7 +13,6 @@ public class ClienteServiceImpl implements ClienteService {
     @Autowired
     private ClienteRepository clienteRepository;
 
-
     @Override
     public List<ClienteModel> getClienteByNome(String nome) {
         return clienteRepository.findByNome(nome);

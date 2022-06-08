@@ -1,17 +1,16 @@
 package com.example.shayder.model;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name="cliente")
-public class ClienteModel {
+public class ClienteModel implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     @Id
-    @Column(name = "idCliente")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name = "nomeCliente", nullable = false)
