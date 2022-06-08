@@ -11,8 +11,8 @@ import javax.persistence.Table;
 public class ClienteModel {
 
     @Id
-    @Column(name = "idCliente", nullable = false)
-    private Integer id;
+    @Column(name = "idCliente")
+    private Long id;
 
     @Column(name = "nomeCliente", nullable = false)
     private String nome;
@@ -35,8 +35,7 @@ public class ClienteModel {
     public ClienteModel() {
     }
 
-    public ClienteModel(Integer id, String nome, String cpf, String email, String senha, String telefone, String sexo) {
-        this.id = id;
+    public ClienteModel(String nome, String cpf, String email, String senha, String telefone, String sexo) {
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
@@ -45,12 +44,11 @@ public class ClienteModel {
         this.sexo = sexo;
     }
 
-
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -101,6 +99,4 @@ public class ClienteModel {
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
-
-
 }
