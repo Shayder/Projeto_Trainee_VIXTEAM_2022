@@ -1,15 +1,15 @@
 function consultarCliente(){
     var nome = document.getElementById("inputNome").value;
-    
+
     const xhttp = new XMLHttpRequest();
 
     xhttp.onload = function() {
 
-//        if(this.responseText=="null"){
-//            document.getElementById("resposta").txtContent = "Cliente não encontrado!";
-//        }else{
+        if(this.responseText=="null"){
+            document.getElementById("resposta").textContent = "Cliente não encontrado!";
+        }else{
             document.getElementById("resposta").textContent = this.responseText;
-//        }
+        }
 
     }
 
