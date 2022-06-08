@@ -1,15 +1,13 @@
 package com.example.shayder.controller;
 
-
 import com.example.shayder.model.ClienteModel;
 import com.example.shayder.repository.ClienteRepository;
+import com.example.shayder.service.ClienteService;
 import com.example.shayder.service.ClienteServiceImpl;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-
 
 @RestController
 @RequestMapping
@@ -20,7 +18,8 @@ public class ClienteController {
     @Autowired
     private ClienteRepository clienteRepository;
 
-    @GetMapping("/consulta")
+    @RequestMapping(value = "/consulta",method = RequestMethod.GET)
+    @ResponseBody
     public String buscar(@RequestParam(name = "fNome")String nome){
 
         List<ClienteModel> clientes = clienteService.getClienteByNome(nome);
@@ -38,18 +37,25 @@ public class ClienteController {
 //    }
 
 
+    @RequestMapping("/cadastro")
+    public String cadastrar(
+            @RequestParam(name="fNome") String nome,
+            @RequestParam(name="fCpf")String cpf,
+            @RequestParam(name="fEmail")String email,
+            @RequestParam(name="fSenha") String senha,
+            @RequestParam(name="fTelefone") String telefone,
+            @RequestParam(name="fSexo")String sexo ){
 
-//    @GetMapping("/cadastro")
-//    public String cadastrar(
-//            @RequestParam(name="fNome") String nome,
-//            @RequestParam(name="fCpf")String cpf,
-//            @RequestParam(name="fEmail")String email,
-//            @RequestParam(name="fSenha") String senha,
-//            @RequestParam(name="fSexo")String sexo ){
-//
-//
-//
-//    return "Cadastrado";
-//    }
+        ClienteModel cliente = new ClienteModel();
+        cliente.setNome(nome);
+        cliente.setCpf(cpf);
+        cliente.setEmail(email);
+        cliente.setSenha(senha);
+        cliente.setTelefone(telefone);
+        cliente.setSexo(sexo);
+        clienteRepository.save(cliente);
+
+    return "Cadastrado";
+    }
 }
 

@@ -17,5 +17,7 @@ public class ClienteServiceImpl implements ClienteService {
     public List<ClienteModel> getClienteByNome(String nome) {
         return clienteRepository.findByNome(nome);
     }
+
+
 }
 
