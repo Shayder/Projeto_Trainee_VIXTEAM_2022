@@ -35,30 +35,46 @@
                 <button type="button" class="btn btn-success mt-3 mb-3" onclick="consultarCliente()">Consultar</button>
             </div>
 
-            
+
 
         </form>
 
     </div>
-    <div class="row d-flex justify-content-center ">
-        <ul class="list-group row col-10 d-flex justify-content-center ">
-            <li class="list-group-item" id="resposta"></li>
-<!--                    <li class="list-group-item active">Usuário 2</li>-->
-<!--                    <li class="list-group-item">Usuário 3</li>-->
-<!--                    <li class="list-group-item">Usuário 4</li>-->
 
-        </ul>
+    <div class="d-flex justify-content-center">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Código</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">CPF</th>
+                    <th scope="col">Telefone</th>
+                    <th scope="col">Sexo</th>
+                </tr>
+            </thead>
+            <tbody id="tbodyId">
+            </tbody>
+        </table>
+
+
     </div>
 
 
     <div class=" row d-flex justify-content-center">
 
-        <div class="col-md-1 mt-3">
-            <button type="button" class="btn btn-warning mt-3 mb-5" onclick="consultarCliente()">Alterar</button>
+        <div class="row col-2 mt-3">
+            <label class="form-label" for="InputCodigo">Código do cliente</label>
         </div>
-    
-        <div class="col-md-1 mt-3">
-            <button type="button" class="btn btn-danger mt-3 mb-5" onclick="consultarCliente()">Remover</button>
+
+        <div class="row col-3 mt-3">
+            <input type="text" id="inputCodigo" name="fCodigo" class="form-control" />
+        </div>
+
+        <div class="row col-2 mt-3">
+            <div class="col-12">
+                <button type="button" class="btn btn-danger" onclick="consultarCliente()">Remover</button>
+            </div>
         </div>
     </div>
 
