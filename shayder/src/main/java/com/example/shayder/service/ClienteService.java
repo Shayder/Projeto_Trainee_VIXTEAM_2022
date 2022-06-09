@@ -9,5 +9,4 @@ public interface ClienteService  {
 //    List<ClienteModel> getAllCliente();
     List<ClienteModel> getClienteByNome(String nome);
 
-
 }

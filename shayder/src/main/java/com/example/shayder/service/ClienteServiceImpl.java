@@ -20,6 +20,5 @@ public class ClienteServiceImpl implements ClienteService {
         return retorno;
     }
 
-
 }
 

@@ -54,6 +54,20 @@ public class ClienteController {
         return !clientes.isEmpty() ? clienteJson.toString() : "null";
     }
 
+    @DeleteMapping("/remove")
+    @ResponseBody
+    public String remover(@RequestParam(name = "fId")Long id){
+        clienteRepository.deleteById(id);
+
+//        List<ClienteModel> clientes = clienteService.getClienteByNome(nome);
+//
+//        JSONArray clienteJson = null;
+//        if(!clientes.isEmpty()){
+//            clienteJson = new JSONArray(clientes);
+//        }
+//        return !clientes.isEmpty() ? clienteJson.toString() : "null";
+        return "Removido!";
+    }
 
 
 }
