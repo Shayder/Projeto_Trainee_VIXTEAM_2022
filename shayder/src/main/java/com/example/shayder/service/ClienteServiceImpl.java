@@ -20,5 +20,10 @@ public class ClienteServiceImpl implements ClienteService {
         return retorno;
     }
 
+    @Override
+    public String deleteById(Long id) {
+        clienteRepository.deleteById(id);
+        return "Removido!";
+    }
 }
 

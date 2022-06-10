@@ -8,5 +8,5 @@ import java.util.List;
 public interface ClienteService  {
 //    List<ClienteModel> getAllCliente();
     List<ClienteModel> getClienteByNome(String nome);
-
+    String deleteById(Long id);
 }

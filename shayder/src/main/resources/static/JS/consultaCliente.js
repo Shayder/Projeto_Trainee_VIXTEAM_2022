@@ -6,9 +6,10 @@ function consultarCliente() {
     xhttp.onload = function () {
 
         if (this.responseText == "null") {
+            document.getElementById("tbodyId").innerText = "";
             alert("Cliente não encontrado!");
         } else {
-            const clienteEncontrado = JSON.parse(this.responseText);
+            clienteEncontrado = JSON.parse(this.responseText);
             for (var i = 0; i < clienteEncontrado.length; i++) {
 
                 var tr = document.createElement('tr');
@@ -46,4 +47,54 @@ function consultarCliente() {
     xhttp.open("GET", "/consulta?fNome=" + nome);
     xhttp.send();
 }
+
+function completaInputModal() {
+    var id = document.getElementById("InputId").value;
+
+    const xhttp = new XMLHttpRequest();
+
+    xhttp.onload = function () {
+
+        if (this.responseText == "null") {
+            alert("Cliente não encontrado!");
+        } else {
+            cliente = JSON.parse(this.responseText);
+
+            document.getElementById("modalNome").value = cliente.nome;
+            document.getElementById("modalCpf").value = cliente.cpf;
+            document.getElementById("modalEmail").value = cliente.email;
+            document.getElementById("modalSenha").value = cliente.senha;
+            document.getElementById("modalTelefone").value = cliente.telefone;
+            document.getElementById("modalSexo").value = cliente.sexo;
+            }
+        
+    }
+
+    xhttp.open("GET", "/consultaId?fId=" + id);
+    xhttp.send();
+
+}
+
+function alterarCliente() {
+    const xhttp = new XMLHttpRequest();
+
+    let cliente;
+    var id = document.getElementById("InputId").value;
+    for (var i = 0; i < clienteEncontrado.length; i++) {
+        if (clienteEncontrado[i].id == id) {
+            cliente = clienteEncontrado[i];
+            cliente.nome = document.getElementById("modalNome").value;
+            cliente.cpf = document.getElementById("modalCpf").value;
+            cliente.email = document.getElementById("modalEmail").value;
+            cliente.senha = document.getElementById("modalSenha").value;
+            cliente.telefone = document.getElementById("modalTelefone").value;
+            cliente.sexo = document.getElementById("modalSexo").value;
+        }
+    }
+
+    xhttp.open("PUT", "/altera");
+    xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhttp.send(JSON.stringify(cliente));
+}
+
 

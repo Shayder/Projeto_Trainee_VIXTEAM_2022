@@ -43,6 +43,17 @@ public class ClienteModel implements Serializable {
         this.sexo = sexo;
     }
 
+    //Construtor implementado para update do cliente
+    public ClienteModel(Long id, String nome, String cpf, String email, String senha, String telefone, String sexo) {
+        this.id = id;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.email = email;
+        this.senha = senha;
+        this.telefone = telefone;
+        this.sexo = sexo;
+    }
+
     public Long getId() {
         return id;
     }
