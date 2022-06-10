@@ -2,16 +2,20 @@ function consultarCliente() {
     var nome = document.getElementById("inputNome").value;
 
     const xhttp = new XMLHttpRequest();
+    
 
     xhttp.onload = function () {
 
         if (this.responseText == "null") {
             document.getElementById("tbodyId").innerText = "";
+            
+            
             alert("Cliente não encontrado!");
+            
         } else {
             clienteEncontrado = JSON.parse(this.responseText);
             for (var i = 0; i < clienteEncontrado.length; i++) {
-
+                
                 var tr = document.createElement('tr');
                 var td1 = document.createElement('td');
                 var td2 = document.createElement('td');
@@ -39,7 +43,7 @@ function consultarCliente() {
                 tr.appendChild(td6);
 
                 document.getElementById("tbodyId").appendChild(tr);
-
+                
             }
         }
     }
@@ -89,6 +93,14 @@ function alterarCliente() {
             cliente.senha = document.getElementById("modalSenha").value;
             cliente.telefone = document.getElementById("modalTelefone").value;
             cliente.sexo = document.getElementById("modalSexo").value;
+            document.getElementById("tbodyId").innerText = "";
+        }
+    }
+
+    xhttp.onreadystatechange = function () {
+        if(xhttp.readyState == 4 && xhttp.status == 200){
+            alert("Cliente alterado!");
+    
         }
     }
 
